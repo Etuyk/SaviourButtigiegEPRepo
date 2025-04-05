@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaviourButtigiegEPSolution", "SaviourButtigiegEPSolution\SaviourButtigiegEPSolution.csproj", "{03C04BAE-B388-47C8-91C9-A6C90833DF1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaviourButtigiegEP.Domain", "SaviourButtigiegEP.Domain\SaviourButtigiegEP.Domain.csproj", "{1839B08D-1EAB-4C7D-B72B-88E7B7E2C53A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaviourButtigiegEP.DataAccess", "SaviourButtigiegEP.DataAccess\SaviourButtigiegEP.DataAccess.csproj", "{4A236652-3707-427F-9DCA-B45687F748A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{03C04BAE-B388-47C8-91C9-A6C90833DF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03C04BAE-B388-47C8-91C9-A6C90833DF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03C04BAE-B388-47C8-91C9-A6C90833DF1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1839B08D-1EAB-4C7D-B72B-88E7B7E2C53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1839B08D-1EAB-4C7D-B72B-88E7B7E2C53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1839B08D-1EAB-4C7D-B72B-88E7B7E2C53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1839B08D-1EAB-4C7D-B72B-88E7B7E2C53A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A236652-3707-427F-9DCA-B45687F748A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A236652-3707-427F-9DCA-B45687F748A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A236652-3707-427F-9DCA-B45687F748A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A236652-3707-427F-9DCA-B45687F748A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
