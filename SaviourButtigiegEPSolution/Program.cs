@@ -1,11 +1,14 @@
 using SaviourButtigiegEP.DataAccess;
 using SaviourButtigiegEP.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
+using SaviourButtigiegEP.DataAccess.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<PollDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<PollRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
