@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SaviourButtigiegEP.Domain.Models.Poll>
+
+@{
+    ViewData["Title"] = "All Polls";
+}
+
+<h2>All Polls</h2>
+
+@if (!Model.Any())
+{
+    <p>No polls found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var poll in Model)
+        {
+            <li>
+                <strong>@poll.Title</strong> <br />
+                Created on: @poll.DateCreated.ToString("dd MMM yyyy hh:mm tt") <br />
+                <a href="@Url.Action("Vote", "Poll", new { id = poll.Id })">Vote</a>
+            </li>
+        }
+    </ul>
+}

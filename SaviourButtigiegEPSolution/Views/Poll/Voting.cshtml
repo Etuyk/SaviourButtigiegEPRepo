@@ -1,0 +1,13 @@
+﻿@model SaviourButtigiegEP.Domain.Models.Poll
+
+@{
+    ViewData["Title"] = "Vote on Poll";
+}
+
+<h2>@Model.Title</h2>
+
+<p><strong>Option 1:</strong> @Model.Option1Text</p>
+<p><strong>Option 2:</strong> @Model.Option2Text</p>
+<p><strong>Option 3:</strong> @Model.Option3Text</p>
+
+<p><small>Created on: @Model.DateCreated.ToString("dd MMM yyyy hh:mm tt")</small></p>

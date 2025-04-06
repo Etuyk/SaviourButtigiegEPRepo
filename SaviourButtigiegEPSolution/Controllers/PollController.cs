@@ -13,9 +13,10 @@ namespace SaviourButtigiegEP.Presentation.Controllers
             _pollRepository = pollRepository;
         }
 
-        public IActionResult Create()
+        public IActionResult Index()
         {
-            return View();
+            var polls = _pollRepository.GetPolls(); 
+            return View(polls);
         }
 
         [HttpPost]
@@ -24,10 +25,30 @@ namespace SaviourButtigiegEP.Presentation.Controllers
         {
             if (ModelState.IsValid)
             {
+                poll.DateCreated = DateTime.Now;
                 await _pollRepository.CreatePoll(poll);
                 return RedirectToAction(nameof(Index));
             }
             return View("Create", poll);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Vote(int id)
+        {
+            var poll = _pollRepository.GetPolls().FirstOrDefault(p => p.Id == id);
+
+            if (poll == null)
+            {
+                return NotFound();
+            }
+
+            return View("Voting", poll);
         }
 
 

@@ -1,0 +1,34 @@
+﻿@model SaviourButtigiegEP.Domain.Models.Poll
+
+@{
+    ViewData["Title"] = "Create Poll";
+}
+
+<h2>Create a New Poll</h2>
+
+<form asp-action="CreatePoll" method="post">
+    <div>
+        <label asp-for="Title">Poll Title</label><br />
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label asp-for="Option1Text">Option 1</label><br />
+        <input asp-for="Option1Text" />
+    </div>
+
+    <div>
+        <label asp-for="Option2Text">Option 2</label><br />
+        <input asp-for="Option2Text" />
+    </div>
+
+    <div>
+        <label asp-for="Option3Text">Option 3</label><br />
+        <input asp-for="Option3Text" />
+    </div>
+
+    <input type="hidden" asp-for="DateCreated" value="@DateTime.Now" />
+
+    <br />
+    <button type="submit">Create Poll</button>
+</form>
