@@ -15,9 +15,10 @@ namespace SaviourButtigiegEP.Presentation.Controllers
 
         public IActionResult Index()
         {
-            var polls = _pollRepository.GetPolls(); 
+            var polls = _pollRepository.GetPolls().OrderByDescending(p => p.DateCreated);
             return View(polls);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -21,7 +21,7 @@ namespace SaviourButtigiegEP.DataAccess.Repositories
 
         public IEnumerable<Poll> GetPolls()
         {
-            return _context.Polls.OrderByDescending(p => p.DateCreated).ToList();
+            return _context.Polls.ToList();
         }
 
     }
