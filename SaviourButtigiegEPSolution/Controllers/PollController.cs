@@ -6,12 +6,15 @@ namespace SaviourButtigiegEP.Presentation.Controllers
 {
     public class PollController : Controller
     {
-        private readonly PollRepository _pollRepository;
+        private readonly CommonRepository _pollRepository;
 
-        public PollController(PollRepository pollRepository)
+        public PollController(CommonRepository pollRepository)
         {
             _pollRepository = pollRepository;
         }
+
+
+
 
         public IActionResult Index()
         {
@@ -59,6 +62,27 @@ namespace SaviourButtigiegEP.Presentation.Controllers
             await _pollRepository.Vote(id, selectedOption);
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult TestFileSave()
+        {
+            var newPoll = new SaviourButtigiegEP.Domain.Models.Poll
+            {
+                Title = "Test Poll from Controller",
+                Option1Text = "Yes",
+                Option2Text = "No",
+                Option3Text = "Maybe",
+                Option1VotesCount = 0,
+                Option2VotesCount = 0,
+                Option3VotesCount = 0,
+                DateCreated = DateTime.Now
+            };
+
+            _pollRepository.CreatePoll(newPoll);
+            return Content("Poll saved to JSON file!");
+        }
+
+
 
 
 

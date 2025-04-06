@@ -8,7 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<PollDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<PollRepository>();
+builder.Services.AddScoped<CommonRepository, PollRepository>();
+
+// builder.Services.AddScoped<CommonRepository, PollFileRepository>(); THIS IS TO SAVE IN FILE NOT DB
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

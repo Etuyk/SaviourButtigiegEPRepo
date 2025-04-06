@@ -4,7 +4,7 @@ using SaviourButtigiegEP.Domain.Models;
 
 namespace SaviourButtigiegEP.DataAccess.Repositories
 {
-    public class PollRepository
+    public class PollRepository : CommonRepository
     {
         private readonly PollDbContext _context;
 
@@ -24,11 +24,9 @@ namespace SaviourButtigiegEP.DataAccess.Repositories
             return _context.Polls.ToList();
         }
 
-
         public async Task Vote(int pollId, int selectedOption)
         {
             var poll = _context.Polls.FirstOrDefault(p => p.Id == pollId);
-
             if (poll == null)
                 return;
 
@@ -49,7 +47,5 @@ namespace SaviourButtigiegEP.DataAccess.Repositories
 
             await _context.SaveChangesAsync();
         }
-
-
     }
 }
