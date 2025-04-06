@@ -52,6 +52,15 @@ namespace SaviourButtigiegEP.Presentation.Controllers
             return View("Voting", poll);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Vote(int id, int selectedOption)
+        {
+            await _pollRepository.Vote(id, selectedOption);
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
     }
 }

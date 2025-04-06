@@ -6,8 +6,21 @@
 
 <h2>@Model.Title</h2>
 
-<p><strong>Option 1:</strong> @Model.Option1Text</p>
-<p><strong>Option 2:</strong> @Model.Option2Text</p>
-<p><strong>Option 3:</strong> @Model.Option3Text</p>
+<form asp-action="Vote" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
 
-<p><small>Created on: @Model.DateCreated.ToString("dd MMM yyyy hh:mm tt")</small></p>
+    <div>
+        <input type="radio" id="opt1" name="selectedOption" value="1" required />
+        <label for="opt1">@Model.Option1Text</label>
+    </div>
+    <div>
+        <input type="radio" id="opt2" name="selectedOption" value="2" />
+        <label for="opt2">@Model.Option2Text</label>
+    </div>
+    <div>
+        <input type="radio" id="opt3" name="selectedOption" value="3" />
+        <label for="opt3">@Model.Option3Text</label>
+    </div>
+
+    <button type="submit">Submit Vote</button>
+</form>
