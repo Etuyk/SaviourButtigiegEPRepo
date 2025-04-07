@@ -24,3 +24,36 @@
 
     <button type="submit">Submit Vote</button>
 </form>
+
+<hr />
+
+<h3>Results</h3>
+<canvas id="chart" width="200" height="100"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['@Model.Option1Text', '@Model.Option2Text', '@Model.Option3Text'],
+            datasets: [{
+                label: 'Votes',
+                data: [@Model.Option1VotesCount, @Model.Option2VotesCount, @Model.Option3VotesCount],
+                backgroundColor: ['blue', 'green', 'yellow'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    min: 0,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+</script>
