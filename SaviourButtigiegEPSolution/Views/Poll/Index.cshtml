@@ -4,7 +4,11 @@
     ViewData["Title"] = "All Polls";
 }
 
+
 <h2>All Polls</h2>
+<a href="@Url.Action("Create", "Poll")">Create a new poll</a>
+
+
 
 @if (!Model.Any())
 {

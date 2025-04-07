@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaviourButtigiegEP.DataAccess.Repositories;
 using SaviourButtigiegEP.Domain.Models;
+using SaviourButtigiegEP.Presentation.Filtering;
+
 
 namespace SaviourButtigiegEP.Presentation.Controllers
 {
@@ -18,9 +20,16 @@ namespace SaviourButtigiegEP.Presentation.Controllers
 
         public IActionResult Index()
         {
+            var userId = HttpContext.Session.GetString("UserId");
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
             var polls = _pollRepository.GetPolls().OrderByDescending(p => p.DateCreated);
             return View(polls);
         }
+
 
 
         [HttpPost]
@@ -57,11 +66,17 @@ namespace SaviourButtigiegEP.Presentation.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [OneVoteOnly]
         public async Task<IActionResult> Vote(int id, int selectedOption)
         {
             await _pollRepository.Vote(id, selectedOption);
+
+            var userId = HttpContext.Session.GetString("UserId");
+            HttpContext.Session.SetString($"Voted_{id}_{userId}", "true");
+
             return RedirectToAction(nameof(Index));
         }
+
 
         [HttpGet]
         public IActionResult TestFileSave()
