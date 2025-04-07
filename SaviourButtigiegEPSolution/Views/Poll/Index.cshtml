@@ -19,6 +19,11 @@ else
                 <strong>@poll.Title</strong> <br />
                 Created on: @poll.DateCreated.ToString("dd MMM yyyy hh:mm tt") <br />
                 <a href="@Url.Action("Vote", "Poll", new { id = poll.Id })">Vote</a>
+
+                <br />
+
+                <a href="@Url.Action("Results", "Poll", new { id = poll.Id })">View Results</a>
+
             </li>
         }
     </ul>

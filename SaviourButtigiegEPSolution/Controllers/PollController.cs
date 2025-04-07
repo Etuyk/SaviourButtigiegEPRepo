@@ -82,6 +82,18 @@ namespace SaviourButtigiegEP.Presentation.Controllers
             return Content("Poll saved to JSON file!");
         }
 
+        [HttpGet]
+        public IActionResult Results(int id)
+        {
+            var poll = _pollRepository.GetPolls().FirstOrDefault(p => p.Id == id);
+
+            if (poll == null)
+            {
+                return NotFound();
+            }
+
+            return View("ResultsOfPoll", poll);
+        }
 
 
 
